@@ -1,0 +1,9 @@
+Database Names -> Plural, All caps (EX: SNIPPETS)
+
+Table Names -> Plural, All caps (EX: USERS)
+
+Table Columns -> Database Abbreviation + Underscore + All Caps (EX: US_USERNAME)
+
+Function Names -> Camel Case (EX: updateView)
+
+Variable Names -> Camel Case (EX: modelLogin)

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Snippets</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">	  
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<!-- ---Sytax Highlighting--- -->
+		<link rel="stylesheet"
+	      href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.1/build/styles/dracula.min.css">
+	<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.1/build/highlight.min.js"></script>
+		
+  </head>
+
+	<body>
+		<script>hljs.initHighlightingOnLoad();</script>
+	 	<div class="container">
+	 	<div class="jumbotron">	
+		<!-- ----- Lindsey UA1 - Login/Sign up/Logout bar ----- -->
+	  <nav class="navbar navbar-inverse navbar-fixed-top">
+	  	 <div class="container-fluid">
+	      <div class="navbar-header"></div>
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>                        
+	      </button>
+	      <a class="navbar-brand">Snippets</a>
+	      <div class="collapse navbar-collapse" id="myNavbar">
+	      <ul class="nav navbar-nav navbar-left">
+	      	<li><a href="#" id="displayFilterBtn">Filter</a></li>
+	      	<li><a href="#" id="displayNewSnippetFormMenu">New Snippet</a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	         <li><a href="#" id="displaySignup"><span class="glyphicon glyphicon-user"></span> Sign up</a></li>
+	         <li><a href="#" id="displayLogin"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	         <li class="tit"><a id="loginName" > </a></li>
+		     	 <li><a href="#" id="logoutMenu" data-toggle="modal"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+		  	</ul>
+	  	 </div>
+	  	 </div>
+	   </nav>
+	   
+   	<!-- ----- Lindsey UA1 - Sign up form Dialog ---------- -->
+		<div id="signupModal" class="modal fade" role="dialog">
+	        <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <button type="button" class="close" data-dismiss="modal"> &times;</button>
+	                <h4>Sign Up</h4>
+	            </div>
+	            <div class="modal-body">
+					<form id ="signUpForm" class="form-inline">
+					   <label class="sr-only" for="username">Username</label>
+					   	   <input type="text" class="form-control input-sm" placeholder="Username" id="userName" name="userName">
+					      
+					    <label class="sr-only" for="password">Password</label>
+					        <input type="password" class="form-control input-sm" placeholder="Password" id="userPassword" name="userPassword">
+					        <button type="button" id="showHideSignUpPw" name="showHideSignUpPw">Show</button>
+						</br></br>
+						<label class="" for="userQUE1">Enter Security Questions:</label></br>
+					   	   <input type="text" class="form-control input-sm" placeholder="Security Question" id="userQUE1" name="userQUE1">
+					    
+					    <label class="sr-only" for="userQUE1ANS">Answer1</label>
+					   	   <input type="password" class="form-control input-sm" placeholder="Answer" id="userQUE1ANS" name="userQUE1ANS">
+					   	   <button type="button" id="showHideSignUpQ1" name="showHideSignUpQ1">Show</button>
+					    </br></br>
+					    <label class="sr-only" for="userQUE2">SecurityQuestion2</label>
+					   	   <input type="text" class="form-control input-sm" placeholder="Security Question" id="userQUE2" name="userQUE2">
+					    
+					    <label class="sr-only" for="userQUE2ANS">Answer2</label>
+					   	   <input type="password" class="form-control input-sm" placeholder="Answer" id="userQUE2ANS" name="userQUE2ANS">
+					   	   <button type="button" id="showHideSignUpQ2" name="showHideSignUpQ2">Show</button>
+					     </br></br>   
+					     
+					   <p id="signUpMsg" class="msgBox"></p>  
+					   
+		      <div class="modal-footer">
+		      	<button id="signUpBtn" type="button" class="btn btn-info">Create Account</button>
+		        <button type="button" class="btn btn-info" data-dismiss="modal">Exit</button>
+		      </div><!-- /.modal-footer -->					   
+					   
+					</form>
+	            </div>
+	        </div>
+	        </div>
+	    </div>
+	  
+	  <!-- ----- Somwang UA2 - Password Reset Dialog -------- -->
+	  <div id="passwordResetFormModal" class="modal fade" role="dialog">
+	  	<div class="modal-dialog">
+	      <div class="modal-content">
+	      	<div class="modal-header">
+	        	<button type="button" class="close" data-dismiss="modal"> &times;</button>
+	          <h4>Password Reset</h4>
+	        </div>
+	            
+	        <div class="modal-body">
+				<form id ="passwordResetForm" class="form-inline">
+					
+					<div class="row">
+						<div class="col-sm-4 rightAl">
+							<label for="username">Enter Username: </label>
+						</div>
+						<div class="col-sm-8">
+				   	   <input type="text" class="form-control" placeholder="Username" id="userNamePSW" name="userNamePSW">
+				   	   <button id="checkUserNameBtn" type="button" class="btn btn-default btn-info">Next</button>									
+						</div>
+					</div>
+				</form>   
+				<hr>	
+						
+		    <form id="securityQuestionReset" class="form-inline">
+		    	<label>Enter Security Questions:</label><br>
+		    	
+					<div class="row">
+					  <div class="col-sm-4 rightAl" ><h5 id="userQ1Reset"></h5></div>
+					  <div class="col-sm-8">
+					 	   <input type="password" class="form-control" 
+					 	   placeholder="Security Answer1" id="userQ1ANSReset" name="userQ1ANSReset">
+					 	   <button type="button" id="showHideQ1" name="showHideQ1">Show</button>
+					  </div>
+					</div>		
+						
+					<div class="row">
+					  <div class="col-sm-4 rightAl"><h5 id="userQ2Reset"></h5></div>
+					  <div class="col-sm-8">
+					 	   <input type="password" class="form-control" 
+					 	   placeholder="Security Answer2" id="userQ2ANSReset" name="userQ2ANSReset">
+					 	   <button type="button" id="showHideQ2" name="showHideQ2">Show</button>
+					  </div>
+					</div>		
+					<hr>
+						
+					<div class="row">
+					  <div class="col-sm-4">
+					  	<label for="newPassword">New Password</label>
+							<input type="password" class="form-control" 
+				   	   placeholder="new password" id="newPassword" name="newPassword">
+					  </div>
+					  
+					  <div class="col-sm-8">
+					  	<label for="newPassword2">Confirm Password</label><br>
+							<input type="password" class="form-control" 
+				   	   placeholder="confirm password" id="newPassword2" name="newPassword2">
+				   	   <button type="button" id="showHideResetPw" name="showHideResetPw">Show</button>
+				   	   <button id="checkAnsBtn" type="button" class="btn btn-info" >Submit</button>
+					  </div>
+					</div>								
+					  	
+    			<input type="hidden" class="form-control input-sm" id="userID" name="userID">
+	    		</form>
+				    
+			    <p id="passwordResetMsg" class="msgBox"></p>
+			    
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-info" data-dismiss="modal">Exit</button>
+		      </div><!-- /.modal-footer -->					    
+			    
+			    </div>
+	      </div>
+	    </div>	        
+	  </div>
+	  
+	  <!-- ----- Lindsey UA3 - Login Form -------- -->
+	  <div id="loginModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"> &times;</button>
+            <h4>Login</h4>
+        </div>
+        <div class="modal-body">
+					<form id ="loginForm" class="form-inline">
+					   <label class="sr-only" for="username">Username</label>
+					   	   <input type="text" class="form-control input-sm" placeholder="Username" id="userNameLogin" name="userNameLogin">
+					      
+					    <label class="sr-only" for="password">Password</label>
+					        <input type="password" class="form-control input-sm" placeholder="Password" id="userPasswordLogin" name="userPasswordLogin">
+					        <button type="button" id="showHideLogin" name="showHideLogin">Show</button>
+					     
+					     <button id="loginBtn" type="button" class="btn btn-default btn-info">Login</button>
+					     
+					     </br>
+					     
+					     <p id="loginMsg" class="msgBox"></p>
+					     <a href="#" id="displaySignup2" data-toggle="modal" data-dismiss="modal">Sign up | </a>
+					     <a href="#" id="displayPasswordReset" data-toggle="modal" data-dismiss="modal">Forgot Password</a>
+					     
+					   
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-info" data-dismiss="modal">Exit</button>
+		      </div><!-- /.modal-footer -->							   
+
+				</form>
+      </div><!-- /.modal-body -->
+      </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+	  </div><!-- /.loginModal -->
+    
+<!---------------- Dillon + Tyler - VS2 Filter and sort -------------------------------->
+		<br>
+		<form id="filterSortForm">
+  		<div class="row">
+		    <div class="col-sm-1"></div>
+		    <div class="col-sm-10">
+				<!------------------------->
+				  <div class="row">
+				    <div class="col-sm-8">
+					 		<legend>Filter</legend>
+							<div class="form-group">
+							<label class="control-label col-sm-3" for="creator">Creator</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="Creator" name="Creator">
+				  		</div>
+							</div>
+							<div class="form-group">
+							<label class="control-label col-sm-3" for="lang">Language</label>
+							<div class="col-sm-9">
+								<div id="Language" name="Language"></div>
+							</div>
+							</div>
+							<div class="form-group">
+							<label class="control-label col-sm-3" for="desc">Description</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="Description" name="Description">
+							</div>
+							</div>
+				    </div>
+				    
+				    <div class="col-sm-2">
+							<legend>Sort By</legend>
+						  <input type="radio" id=SortBy1 name="SortBy" value="USERS.US_USERNAME" checked="checked"><label for="SortBy1">Creator</label><br>
+						  <input type="radio" id=SortBy2 name="SortBy" value="LANGUAGES.LN_NAME"><label for="SortBy2">Language</label><br>
+						  <input type="radio" id=SortBy3 name="SortBy" value="SNP_DESCRIPTION"><label for="SortBy3">Description</label>
+				    </div>
+				    
+				    <div class="col-sm-2">
+							<legend>Order</legend>
+				 			<input type="radio" id=SOpt1 name="SOpt" value="ASC" checked="checked"><label for="SOpt1">Ascending</label><br>
+				  		<input type="radio" id=SOpt2 name="SOpt" value="DESC"><label for="SOpt2">Descending</label>
+				  		<button id="clrfilterBtn" type="button" class="btn btn-info">Reset Filter</button>
+				   	</div>
+				  </div>
+				<!------------------------->
+		    </div>
+		    <div class="col-sm-1"></div>
+  		</div><!-- /.row -->			
+  		
+			<!--button and hiddend text-->
+			<input type="hidden" class="form-control" id="OrderBy" name="OrderBy" VALUE="SNP_CREATOR ASC">
+			<input type="hidden"  id="t1" name="t1">
+			
+			<div class="row"><hr></div>
+		</form><!-- /.filterSortForm -->	
+<!------------------------------------ End Filter and sort ---------------------------------------->
+
+		 <!--Somwang - SM1 new Snippet -->
+		<form id="SnippetForm">
+			<legend class="cent">Add New Snippet</legend>
+			<div class="row">
+				<div class="col-sm-2"></div><!-- /.col-sm-2 -->
+				<div class="col-sm-8">
+				<!--------------------------------->
+				  <div class="form-row">
+				    <div class="form-group col-md-4">
+				      <div id="languageAdd" name="language"></div>
+				    </div>
+				    <div class="form-group col-md-8 paddingText">
+				      <input type="text" class="form-control" id="descriptionAdd" name="description" placeholder="Description">
+				    </div>
+				  </div><!-- /.language and description row -->
+				  <div class="form-row">
+					  <div class="form-group col-sm-12">
+					    <textarea class="codeArea" id="codeAdd" name="code" rows="8" cols=68% placeholder="Snippet Code"></textarea>
+					  </div>
+				  </div><!-- /.code area row -->
+				 <div class="form-row cent">
+				 		<p id="newSnippetMsg" class="msgBox"></p>
+				 </div>
+				<!----------------------------------->
+				</div><!-- /.col-sm-8 -->
+				<div class="col-sm-2">
+					<button id="newSnippetBtn" type="button" class="btn btn-info">Add</button>														
+				</div><!-- /.col-sm-2 -->
+			</div><!-- /.row -->
+			<!--hidden-->
+			<input type="hidden" id="t2" name="t2">
+		</form><!-- /.SnippetForm -->
+		
+		<!--Lindsey - SM3 edit Snippet -->
+	<form id="editSnippetForm">
+			<legend class="cent">Edit Snippet</legend>
+			<div class="row">
+				<div class="col-sm-2"></div><!-- /.col-sm-2 -->
+				<div class="col-sm-8">
+				<!--------------------------------->
+				  <div class="form-row">
+				    <div class="form-group col-md-4">
+				      <div id="languageEdit" name="language"></div>
+				    </div>
+				    <div class="form-group col-md-8 paddingText">
+				      <input type="text" class="form-control" id="descriptionEdit" name="description" placeholder="Description">
+				    </div>
+				  </div><!-- /.language and description row -->
+				  <div class="form-row">
+					  <div class="form-group col-sm-12">
+					    <textarea class="codeArea" id="codeEdit" name="code" rows="8" cols=68% placeholder="Snippet Code"></textarea>
+					  </div>
+				  </div><!-- /.code area row -->
+				 <div class="form-row cent">
+				 		<p id="editSnippetMsg" class="msgBox"></p>
+				 </div>
+				<!----------------------------------->
+				</div><!-- /.col-sm-8 -->
+				<div class="col-sm-2">
+					<button id="editBtn" type="button" class="btn btn-info">OK</button>														
+				</div><!-- /.col-sm-2 -->
+			</div><!-- /.row -->
+			<!--hidden-->
+			<input type="hidden" id="t3" name="t3">
+		</form><!-- /.editSnippetForm -->
+		  
+	  	<!-- Somwang - VS1 set up the table -->
+	  	<br>
+			<table id="stateTable" class="table table-striped table-bordered table-hover ">
+				<thead>
+					<tr>
+						<th>Creator</th>
+						<th>Language</th>
+						<th>Description</th>
+						<th>Code</th>
+					</tr>
+				</thead>
+				<tbody id="TableBody">
+				</tbody>
+			</table>
+			
+			<p id="message" class="msgBox"></p>
+			
+		</div><!-- /.jumbotron -->
+		</div><!-- /.container -->
+	  
+<!-- ------------------------------ js, jquery and bootstrap ------------------------------ -->
+		<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>  	
+		<script src="mvc.js"></script>
+		<script src="script.js"></script>
+	
+		<!-- custom local javascript -->
+		<script>
+	
+		</script>
+		
+		<!-- Somwang - VS3 Dialog -->
+		<div id="viewCodeDlg" class="modal fade" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <p id="codeTit"></p>
+		      </div>
+		      
+		      <div class="modal-body scrollDialog">
+						<p class="codeDialogArea" id="codeMsg"></p>
+		      </div><!-- /.modal-body -->
+		      
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-info" data-dismiss="modal">Exit</button>
+		      </div><!-- /.modal-footer -->
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->		
+		
+	</body>
+	
+</html>

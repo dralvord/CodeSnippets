@@ -1,0 +1,55 @@
+.cent 
+{
+    text-align-last: center;
+}
+
+h4 {
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    color:#5bc0de;
+}
+
+legend {
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 5px #51bcc8, 0 0 5px darkblue;
+}
+
+th {
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 5px #51bcc8, 0 0 5px darkblue;
+    text-align: center;
+    font-size: 1.7rem;
+    background-color: #5bc0de;
+}
+
+.rightAl {
+    text-align: right;
+}
+
+.tit {
+    text-shadow: 1px 1px 2px blue, 0 0 5px #51bcc8, 0 0 5px darkblue;    
+}
+
+hr { 
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+}
+
+/*------------------------------------------------------------*/
+/*          filter/new Snippets                               */
+/*------------------------------------------------------------*/
+.codeArea {
+    font-family: monospace;
+    font-size: large;
+}
+
+/*for language drop down in filter*/
+#Language {
+    width:150px;
+}

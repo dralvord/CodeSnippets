@@ -1,0 +1,6 @@
+URL Creates user with Username testing2 with password of "testing3"
+https://software-engineer-fluffy2.c9users.io/CSCI452-FA18-Public/Server/snippet.php?cmd=create&userName=testing2&userPassword=testing3&userQUE1=Where you were born?&userQUE1ANS=Testing1&userQUE2=pet name&userQUE2ANS=Testing1
+https://se-testbed-mclacs.c9users.io/CSCI452-FA18-Public/Server/snippet.php?cmd=create&userName=testing2&userPassword=testing3&userQUE1=Where you were born?&userQUE1ANS=Testing1&userQUE2=pet name&userQUE2ANS=Testing1
+
+Test Login at 
+https://software-engineer-fluffy2.c9users.io/CSCI452-FA18-Public/Client/
